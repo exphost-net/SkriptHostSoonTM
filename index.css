@@ -208,7 +208,8 @@ nav {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    
+    height: 120vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -284,8 +285,9 @@ nav {
   box-shadow: var(--glass-shadow);
   max-width: 700px;
   min-width: 500px;
+  max-height: 100vh;
   margin: 0 20px;
-  
+  margin-top: 5rem;
 }
 .hero-content h1 {
   font-size: 3.5rem;
