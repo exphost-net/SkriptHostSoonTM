@@ -51,10 +51,6 @@
     </script>    
   <link rel="stylesheet" href="index.css">
   <style>
-    /* Remove background image from hero */
-    .hero {
-      background: none !important;
-    }
     /* New Feature Cards Section */
     .feature-cards {
       display: grid;
@@ -83,18 +79,6 @@
       text-align: center;
       padding: 20px 0;
     }
-
-    .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--dark-bg);
-    opacity: 0;
-    z-index: -1;
-}
   </style>
 </head>
 <body>
@@ -112,27 +96,47 @@
                 </div>                
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Panel</a></li>
-                    <li><a href="#">Billing</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="//panel.skripthost.net">Panel</a></li>
+                    <li><a href="//billing.skripthost.net">Billing</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="/Images/logos/SkriptHost.png" alt="SkriptHost Logo" style="width: 200px; height: 200px;" loading="lazy">
-            <h1>SkriptHost</h1>
-            <p>Skript More, Worry Less.</p>
-            <a href="#pricing" class="btn">Choose Your Plan</a>
-            <a href="//exphost.net" class="powered-by">
-                <span>Powered by</span>
-                <img src="/Images/ExpHost 3.0 Clear.png" alt="ExpHost Logo" style="width: 120px; height: auto;">
+      <div class="hero-content">
+          <img src="/Images/logos/SkriptHost.png" alt="SkriptHost Logo" style="width: 200px; height: 200px;" loading="lazy">
+          <h1>SkriptHost</h1>
+          <p>Skript More, Worry Less.</p>
+          <a href="#pricing" class="btn">Choose Your Plan</a>
+          <a href="//exphost.net" class="powered-by">
+              <span>Powered by</span>
+              <img src="/Images/ExpHost 3.0 Clear.png" alt="ExpHost Logo" style="width: 120px; height: auto;">
+          </a>
+      </div>
+  </section>
+  
+  <section class="partners-section">
+      <h1>Our Partners</h1>
+      
+    
+      <!-- Outer wrapper to hide overflow -->
+      <div class="marquee">
+        <!-- First set of logos -->
+        <div class="marquee__group">
+          <a href="https://www.exphost.net" target="_blank">
+              <img src="/Images/exphost-transparentLogo.png" alt="Tropiclash">
+            </a>
+          <a href="https://SkriptHub.net" target="_blank">
+              <img src="/Images/SkriptHubLogoWhite.svg" alt="SkriptHub">
             </a>
         </div>
+      </div>
+    
+      <a href="//discord.gg/yYnUq4sxfx" class="btn">Apply to be a Partner</a>
     </section>
   
   <section id="features" class="features">
@@ -172,55 +176,63 @@
         </div>
     </div>
 </section>
+
+<section id="cta" class="cta-section">
+  <div class="container">
+      <h2>Ready to Elevate Your Skript Experience?</h2>
+      <p>Join the growing community of developers who trust SkriptHost for their Skript projects</p>
+      <a href="#pricing" class="btn cta-btn">Get Started Today</a>
+  </div>
+</section>
   
   <!-- Footer (Re-added from original site) -->
   <footer>
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
-            <img src="/Images/logos/SkriptHost.png" alt="SkriptHost Logo" style="width: 50px; height: auto;" loading="lazy">
-            <span>SkriptHost</span>
-          </a>
-          <a href="//www.exphost.net" class="powered-by-footer">
-            <span>Powered by</span>
-            <img src="/Images/ExpHost 3.0 Dark Clear.png" alt="ExpHost Logo" style="width: 80px; height: auto;">
-          </a>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                    <img src="/Images/logos/SkriptHost.png" alt="SkriptHost Logo" style="width: 50px; height: auto;" loading="lazy">
+                    <span>SkriptHost</span>
+                </a>
+                <a href="//www.exphost.net" class="powered-by-footer">
+                    <span>Powered by</span>
+                    <img src="/Images/ExpHost 3.0 Clear.png" alt="ExpHost Logo" style="width: 80px; height: auto;">
+                </a>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#pricing">Skript Hosting</a></li>
+                        <li><a href="//www.exphost.net">Other server</a></li>
+                        <li><a href="//www.exphost.net">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="//support.skripthost.com">Knowledge Base</a></li>
+                        <li><a href="//billing.skripthost.com/tickets">Support Tickets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="legal.html">Legal</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#pricing">Skript Hosting</a></li>
-              <li><a href="//www.exphost.net">Other Server</a></li>
-              <li><a href="//www.exphost.net">Custom Solutions</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Support</h4>
-            <ul>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="//support.skripthost.net">Knowledge Base</a></li>
-              <li><a href="//billing.skripthost.net/tickets">Support Tickets</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="legal.html">Legal</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
-          </div>
+        <div class="social-links">
+            <a href="//www.youtube.com/@ExpHost"><i class="fab fa-youtube"></i></a>
+            <a href="//x.com/ExpHost"><i class="fab fa-twitter"></i></a>
+            <a href="//discord.gg/yYnUq4sxfx"><i class="fab fa-discord"></i></a>
         </div>
-      </div>
-      <div class="social-links">
-                <a href="//www.youtube.com/@ExpHost"><i class="fab fa-youtube"></i></a>
-                <a href="//x.com/ExpHost"><i class="fab fa-twitter"></i></a>
-                <a href="//discord.gg/yYnUq4sxfx"><i class="fab fa-discord"></i></a>
-      </div>
-      <p>&copy; 2025 SkriptHost. All rights reserved. A division of ExpHost.</p>
+        <p>&copy; 2025 SkriptHost. All rights reserved. A division of ExpHost.</p>
     </div>
-  </footer>
+</footer>
 </body>
 </html>

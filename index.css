@@ -208,7 +208,6 @@ nav {
 
 /* Hero Section */
 .hero {
-    
     height: 120vh;
     display: flex;
     align-items: center;
@@ -218,8 +217,10 @@ nav {
     overflow: hidden;
     background: url('/Images/bg.png') no-repeat center top;
     padding-top: 60px;
+    background-size: cover;
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
+    
 }
 
 .hero::before {
@@ -229,8 +230,8 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--dark-bg);
-    opacity: 0.6;
+    opacity: 1;
+    background: linear-gradient(to bottom, var(--glass-background), var(--dark-bg));
     z-index: -1;
 }
 
@@ -283,11 +284,11 @@ nav {
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  max-width: 700px;
-  min-width: 500px;
+  min-width: 25rem;
   max-height: 100vh;
   margin: 0 20px;
   margin-top: 5rem;
+  max-width: 80%;
 }
 .hero-content h1 {
   font-size: 3.5rem;
@@ -312,8 +313,62 @@ nav {
   animation-fill-mode: both;
 }
 
+
+.partners-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--dark-bg), #ffffff00);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    
+  }
+  
+  .marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .marquee__group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6rem; /* Increases spacing between logos */
+    
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .marquee__group img {
+    height: 6rem;
+    width: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    opacity: 75%;
+    filter: grayscale(50%);
+    transition: transform 0.3s ease;
+  }
+  
+  .marquee__group img:hover {
+    transform: scale(1.1);
+    opacity: 100%;
+    filter: grayscale(0%);
+  }
+
+@media (max-width: 768px) {
+  .marquee__group {
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+  }
+  }
+
 /* Features Section */
-.features h2, .skript-features h2 {
+.features h2, .skript-features h2, .partners-section h1 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
@@ -1041,5 +1096,341 @@ footer p {
 
 html {
     scroll-behavior: smooth;
+    }
+
+/* Minimal extra styling for popup (rely on your existing .feature-card, .glass classes, etc.) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* dim the background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background-color: var(--glass-background);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--card-radius);
+    padding: 2rem;
+    width: 400px;
+    max-width: 90%;
+  }
+  
+  .modal-page h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
 
+  .modal-page btn {
+    margin-top: 1rem;
+  }
+  
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .location-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .location-option img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .location-option:hover {
+    border-color: var(--accent-color);
+  }
+  
+  .location-option.out-of-stock {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  #page2 label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #server-name, #minecraft-version {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.1);
+    color: var(--text-color);
+    margin-bottom: 1rem;
+  }
+  
+
+
+/* Selected state with animation */
+.location-option.selected {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    animation: glowFlash 0.5s ease;
+  }
+  
+  @keyframes glowFlash {
+    0% { box-shadow: 0 0 0px var(--accent-color); }
+    50% { box-shadow: 0 0 25px var(--secondary-color); }
+    100% { box-shadow: 0 0 10px var(--accent-color); }
+  }
+  
+
+  .version-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .version-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .version-option img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .version-option:hover {
+    border-color: var(--accent-color);
+  }
+  
+  .version-option.selected {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    animation: glowFlash 0.5s ease;
+  }
+  
+
+
+.addon-option {
+  margin-bottom: 1rem;
+}
+
+.addon-option input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+
+/* Container for all bubbles */
+.summary-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* space between bubbles */
+  margin-bottom: 1rem;
+}
+
+/* Individual bubble card */
+.summary-bubble {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.5rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Icon styling */
+.summary-bubble img,
+.summary-bubble i {
+  width: 40px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.location-grid h4 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.location-grid p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+/* Title or label in bubble */
+.summary-bubble .bubble-label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* The text or value in bubble */
+.summary-bubble .bubble-value {
+  font-size: 0.95rem;
+}
+
+/* Add-ons list in bubble, stacked vertically */
+.summary-bubble .addons-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* The big cost text at the bottom */
+.summary-total-cost {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+
+.summary-bubbles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 1rem;
+    justify-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Each bubble is smaller, no extra labels */
+  .summary-bubble {
+    background-color: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 130px;  /* Adjust as needed */
+    height: 130px; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Icon is bigger at the top */
+  .bubble-icon {
+    font-size: 1.6rem;  /* If using an emoji or icon text */
+    margin-bottom: 0.3rem;
+  }
+  
+  .bubble-icon img {
+    width: 36px; /* If using a flag or server logo */
+    height: auto;
+  }
+  
+  .bubble-value {
+    font-size: 0.95rem;
+    line-height: 1.2;
+    color: var(--text-color);
+  }
+  
+  /* The total cost at the bottom, bigger text */
+  .summary-total-cost {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  
+
+  .summary-bubbles {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Example bubble/card style */
+  .summary-bubble {
+    background-color: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 160px; /* tweak as needed */
+    box-shadow: var(--glass-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .summary-bubble:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  }
+  
+  /* Label text inside bubble */
+  .bubble-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Main value text inside bubble */
+  .bubble-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+/* Container that holds Cost + RAM side by side (or stacked) */
+.summary-cost-ram-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Larger cost text in your primary accent color */
+  .summary-cost {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent-color); /* or whatever primary color variable you have */
+    margin-bottom: 0.3rem;
+  }
+  
+  /* RAM in smaller white text (or your main text color) */
+  .summary-ram {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff; /* or var(--text-color) */
+  }
+  
+  /* For the 5 smaller perk bubbles */
+  .perks-bubbles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    margin-bottom: 1rem;
+  }
